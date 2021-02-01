@@ -21,32 +21,9 @@ def main():
     3. 执行命令
     """
 
-    print("可选的设备的序号:")
-    show_str = ""
-    cout = 0
-    for devDict in devlist.devices_list:
-        phone_no = devDict['phone_no']
-        dev_no = devDict['dev_no']
-        show_str += "序号:" + str(cout) + "    手机号：" + phone_no + " 设备号：" + dev_no + "\r\n"
-        cout += 1
-
-    print(show_str)
-
-    dev_dict = {}
-    while 1:
-
-        sel_num = input("请选择需要执行的序号：")
-        int_sel_num = int(sel_num)
-
-        if 0 <= int_sel_num < len(devlist.devices_list):
-            dev_dict = devlist.devices_list[int_sel_num]
-            print(dev_dict)
-            break
-        else:
-            print("输入错误，请重新选择")
-
-    # 设置当前的设备为 (4857d2bc) ->135设备.
-    adb.gb_devices_name = dev_dict["dev_no"]
+    # 设置当前的设备为 用户选择输入.
+    curDevicesName = devlist.getUserSelectDevice()
+    adb.gb_devices_name = curDevicesName
 
     tt = toutiao.Toutiao()
 
@@ -63,7 +40,7 @@ def main():
 
         # 进入下一次循环
         print('--- 执行次数：%d, ' % count)
-        print(f"当前设备: {dev_dict} \n")
+        print("当前设备: %s \n" % curDevicesName)
         continue
 
 
