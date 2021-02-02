@@ -116,6 +116,8 @@ class Tiktok(object):
         # 等广告页面看完
         act.wait(60)
 
+        #点击进入广告的下载页面
+
         # 退出下载页面
         # oUtils.backKey()
         # act.wait(3)
@@ -128,8 +130,8 @@ class Tiktok(object):
 
 
 if __name__ == "__main__":
-    print(f"pass {__file__}")
-    # pass
+    #print(f"pass {__file__}")
+    pass
     # Tiktok().eatRadBagAndOpenBox()
     # tiktok().moveUpVideo()
     # tiktok().moveDownVideo()
