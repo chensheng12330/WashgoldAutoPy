@@ -32,10 +32,7 @@ def main():
     print('\n\033[1;44m----------------启动自动化---------------------\033[0m')
     while count < max_count:
         count += 1
-
-
-        tt.nextPage(500)
-
+        tt.nextPage(1200, 1800, 1060)
         read_time = adb.getRandom(10, 20)
         # 15秒翻一次.
         adb.setSleep(read_time)

@@ -15,17 +15,18 @@ class QQRead(object):
     def __init__(self):
         pass
 
-    def nextPage(self, maxY=1000, tapX=1060):
+    def nextPage(self, minY=140, maxY=1000, tapX=1060):
         """ 阅读小说进行翻页,(1060, (140~1000) )
 
         :param tapX: 点击翻页的时的X坐标值，默认值为：1060
+        :param minY: 点击的Y坐标最小的偏移随机值，用于防止系统变为机器人
         :param maxY: 点击的Y坐标最大的偏移随机值，用于防止系统变为机器人
         :return: none
         """
 
         adb_utils.setSleep(2)
 
-        pageY = adb_utils.getRandom(140, maxY)
+        pageY = adb_utils.getRandom(minY, maxY)
 
         print('>>> 执行翻页操作,坐标: (%d,%d) ' % (tapX, pageY))
         adb_utils.tap(tapX, pageY)
