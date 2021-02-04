@@ -48,7 +48,7 @@ class Toutiao(object):
 
         # 等待广告看完
         print('>>> 等待广告看完')
-        adb_utils.setSleep(22)
+        adb_utils.setSleep(35)
 
         # 循环8次后将会提示需要再次查看广告
         # TODO  待处理
@@ -91,7 +91,7 @@ class Toutiao(object):
 
         # 返回到文章列表
         print('>>> 返回到文章列表.')
-        adb_utils.backKey()
+        self.backButton()
         adb_utils.setSleep(3)
 
         # 移动到新的文章列表
@@ -124,16 +124,57 @@ class Toutiao(object):
         # 看广告
         self.eatAD(575, 785, 1)
 
-        # 返回到任务中心
-        adb_utils.backKey()
+        # 关闭广告页面,回到任务页面
+        # adb_utils.backKey()
+        self.closeAdPage()
 
         # 休息3s
-        adb_utils.setSleep(1)
+        adb_utils.setSleep(2)
 
-        # 返回到文章页面.
-        adb_utils.backKey()
+        # 返回到文章列表页面.
+        self.backButton()
         adb_utils.setSleep(2)
         # --------------------------
+        return
+
+    def eatBoxAndAD(self):
+        """
+        任务中心页面开箱看广告.
+        :return:
+        """
+        # 点击宝箱
+        print('>>> 点击宝箱，开宝箱')
+        self.eatBox(905, 665)
+        adb_utils.setSleep(3)
+
+        # 看广告
+        print('>>> 看广告')
+        self.eatAD(575, 785, 1)
+
+        # 关闭广告页面,回到任务页面
+        # adb_utils.backKey()
+        self.closeAdPage()
+        return
+
+
+    def backButton(self):
+        """
+        返回按键
+        :param self:
+        :return: none
+        """
+
+        adb_utils.tap(60, 136)
+        return
+
+    def closeAdPage(self):
+        """
+        关闭广告页面
+        :param self:
+        :return:
+        """
+
+        adb_utils.tap(960, 100)
         return
 
 
@@ -148,40 +189,22 @@ def tt_test_main():
 def test_openBox():
     """测试从红包
     """
+    adb_utils.gb_devices_name = "8514c020"
     tt = Toutiao()
-
-    print('>>> 跳转到任务中心，等待6s...')
-    adb_utils.tap(170, 140)
-
-    # 等任务中心加载出来
-    adb_utils.setSleep(6)
-
-    # 点击宝箱
-    print('>>> 点击宝箱，开宝箱')
-    tt.eatBox(905, 665)
-    adb_utils.setSleep(3)
-
-    # 看广告
-    tt.eatAD(575, 785, 1)
-
-    adb_utils.setSleep(1)
-
-    adb_utils.backKey()
-
-    # 休息4s
-    adb_utils.setSleep(4)
-
-    # 返回到文章页面.
-    adb_utils.backKey()
-    adb_utils.setSleep(2)
-    # --------------------------
+    tt.tipRadBagToBox_pri()
+    # 点击红包到任务中心
 
     # 返回到文章列表
     print('>>> 返回到文章列表.')
-    adb_utils.backKey()
+    tt.backButton()
     adb_utils.setSleep(3)
+
+    # 移动到新的文章列表
+    print('>>> 移动到下篇文章.')
+    news.moveNextNewsList()
 
 
 if __name__ == "__main__":
+
     pass
     # test_openBox()

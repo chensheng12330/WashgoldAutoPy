@@ -30,13 +30,16 @@ def main():
     count = 0
     max_count = run_count
 
+    # 10分钟一次开宝箱.
+    sleepTime = 10*60
+
     while count < max_count:
         count += 1
-        print('\n\033[1;44m----------------启动自动化---------------------\033[0m')
+        print('\n\033[1;44m----------------启动任务页面开宝箱自动化---------------------\033[0m')
 
-        tt.readNewsAndEatBox()
+        tt.eatBoxAndAD()
 
-        adb.setSleep(2)
+        adb.setSleep(sleepTime)
 
         # 进入下一次循环
         print('--- 执行次数：%d, ' % count)

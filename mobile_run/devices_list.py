@@ -16,15 +16,17 @@ def getUserSelectDevice():
     for devDict in devices_list:
         phone_no = devDict['phone_no']
         dev_no = devDict['dev_no']
-        show_str += "序号:" + str(count) + "    手机号：" + phone_no + " 设备号：" + dev_no + "\r\n"
+        show_str += "序号:" + str(count) + "    手机号：" + phone_no + " 设备号：" + dev_no + '\n'
         count += 1
 
-    print(show_str)
+    print('-------------------------------------')
+    print('\033[1;34m%s \033[0m' % show_str)
+    print('-------------------------------------')
 
     dev_dict = {}
     while 1:
 
-        sel_num = input("请选择需要执行的序号(退出请输入 q)：")
+        sel_num = input(">请选择需要执行的序号(退出请输入 q)：")
         if sel_num == 'q':
             exit(0)
 
