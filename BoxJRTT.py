@@ -11,7 +11,7 @@ from mobile_run import devices_list as devlist
 '''
 
 # 执行的次数
-run_count = 4
+run_count = 10000
 
 
 def main():
