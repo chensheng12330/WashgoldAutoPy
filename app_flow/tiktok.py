@@ -105,16 +105,19 @@ class Tiktok(object):
         """
         act.wait(3)
         # 点击宝箱
+        print(">> 点击宝箱")
         act.tapWithRand(920, 720)
 
         # 等宝箱打开页面加载
         act.wait(4)
 
         # 点击广告
+        print(">> 点击广告")
         act.tapWithRand(550, 720)
 
         # 等广告页面看完
-        act.wait(60)
+        print(">> 等广告页面看完")
+        act.wait(80)
 
         #点击进入广告的下载页面
 
@@ -123,8 +126,9 @@ class Tiktok(object):
         # act.wait(3)
 
         # 退出广告页面
+        print(">> 退出广告页面")
         adb_utils.backKey()
-        act.wait(3)
+        act.wait(4)
 
         return
 

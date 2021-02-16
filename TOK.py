@@ -29,6 +29,13 @@ def main():
 
     print('\n\033[1;44m----------------启动抖音开宝箱，做视频广告任务--------------------\033[0m')
 
+    act.wait(3)
+    print("> 1.开宝箱,点广告，领金币.")
+    tok.openBox()
+    act.wait(10)
+    print("> 2.做视频广告任务-.")
+    tok.open20AdVideo()
+
     while count < maxCount:
         print(">>> 开始一个20分钟的循环操作...")
         count += 1
@@ -39,10 +46,11 @@ def main():
         tok.openBox()
 
         act.wait(10 * 60)
+        print(">>> 2.开宝箱,点广告，领金币.")
         tok.openBox()
 
         # 需要点击，防止睡了.
-
+        print(">>> 3.做视频广告任务-.")
         tok.open20AdVideo()
 
         # 进入下一次循环

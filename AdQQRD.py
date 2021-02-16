@@ -37,7 +37,7 @@ def main():
 
         adb.tap(898, 1444)
 
-        adb.setSleep(60, 70)
+        adb.setSleep(20)
 
         adb.tap(75, 1120)
 

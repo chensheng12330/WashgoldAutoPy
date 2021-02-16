@@ -48,7 +48,7 @@ class Toutiao(object):
 
         # 等待广告看完
         print('>>> 等待广告看完')
-        adb_utils.setSleep(35)
+        adb_utils.setSleep(75)
 
         # 循环8次后将会提示需要再次查看广告
         # TODO  待处理
@@ -78,11 +78,12 @@ class Toutiao(object):
         print('>>> 点击文章列表')
         news.tapNewsList(0)
         # 等待界面稳定
-        adb_utils.setSleep(2)
+        adb_utils.setSleep(4)
 
         # 阅读新闻 10分钟一次
         print('>>> 阅读新闻,10分钟一次')
-        news.readNews(600)
+        #news.readNews(600)
+        news.readNews(600,1)
 
         adb_utils.setSleep(1)
 
@@ -114,22 +115,22 @@ class Toutiao(object):
         adb_utils.tap(170, 140)
 
         # 等任务中心加载出来
-        adb_utils.setSleep(6)
+        adb_utils.setSleep(10)
 
         # 点击宝箱
         print('>>> 点击宝箱，开宝箱')
         self.eatBox(905, 665)
-        adb_utils.setSleep(3)
+        adb_utils.setSleep(6)
 
         # 看广告
         self.eatAD(575, 785, 1)
 
         # 关闭广告页面,回到任务页面
-        # adb_utils.backKey()
-        self.closeAdPage()
+        adb_utils.backKey()
+        # self.closeAdPage()
 
         # 休息3s
-        adb_utils.setSleep(2)
+        adb_utils.setSleep(6)
 
         # 返回到文章列表页面.
         self.backButton()
@@ -152,8 +153,8 @@ class Toutiao(object):
         self.eatAD(575, 785, 1)
 
         # 关闭广告页面,回到任务页面
-        # adb_utils.backKey()
-        self.closeAdPage()
+        adb_utils.backKey()
+        # self.closeAdPage()
         return
 
 
