@@ -82,8 +82,7 @@ class Toutiao(object):
 
         # 阅读新闻 10分钟一次
         print('>>> 阅读新闻,10分钟一次')
-        #news.readNews(600)
-        news.readNews(600,1)
+        news.readNews(600)
 
         adb_utils.setSleep(1)
 
