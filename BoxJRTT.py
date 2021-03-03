@@ -39,11 +39,11 @@ def main():
 
         tt.eatBoxAndAD()
 
-        adb.setSleep(sleepTime)
-
         # 进入下一次循环
         print('--- 执行次数：%d, ' % count)
         print("当前设备: %s \n" % curDevicesName)
+
+        adb.setSleep(sleepTime)
         continue
 
 
