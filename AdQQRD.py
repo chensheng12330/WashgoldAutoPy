@@ -37,9 +37,9 @@ def main():
 
         adb.tap(898, 1444)
 
-        adb.setSleep(20)
+        adb.setSleep(50)
 
-        adb.tap(75, 1120)
+        adb.tap(100, 1060)
 
         # 进入下一次循环
         print('--- 执行次数：%d, ' % count)

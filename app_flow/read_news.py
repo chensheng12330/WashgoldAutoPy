@@ -66,7 +66,7 @@ def readNews(beginY=600, readTime=10):
     while moveCout > 1:
         adX = adb_utils.getRandom(coEggX - 20, coEggX + 20)
         adY = adb_utils.getRandom(coEggY - 5, coEggY + 5)
-        adL = adb_utils.getRandom(45, 70)
+        adL = adb_utils.getRandom(45, 100)
         adb_utils.move(adX, adY, adX, adY - adL, 700)
         adb_utils.setSleep(5)
         moveCout -= 5
