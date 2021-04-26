@@ -15,7 +15,7 @@ from app_flow import read_news as news
 '''
 
 # 执行的次数
-run_count = 3
+run_count = 2
 
 
 def main():

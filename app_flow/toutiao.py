@@ -87,7 +87,7 @@ class Toutiao(object):
         adb_utils.setSleep(1)
 
         # 点击红包到任务中心
-        self.tipRadBagToBox_pri()
+        #self.tipRadBagToBox_pri()
 
         # 返回到文章列表
         print('>>> 返回到文章列表.')
@@ -118,7 +118,7 @@ class Toutiao(object):
 
         # 点击宝箱
         print('>>> 点击宝箱，开宝箱')
-        self.eatBox(905, 665)
+        self.eatBox(905, 1744)  #665 / 1744
         adb_utils.setSleep(6)
 
         # 看广告
@@ -144,7 +144,7 @@ class Toutiao(object):
         """
         # 点击宝箱
         print('>>> 点击宝箱，开宝箱')
-        self.eatBox(905, 665)
+        self.eatBox(905, 1744)
         adb_utils.setSleep(3)
 
         # 看广告
