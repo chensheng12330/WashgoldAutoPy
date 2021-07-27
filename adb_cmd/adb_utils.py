@@ -191,16 +191,25 @@ def turnDownVolume():
 
 
 def clearCache(app):
-    runCommand('adb -s {} shell pm clear {}'.format(get_devices_str(), app))
+    runCommand('adb {} shell pm clear {}'.format(get_devices_str(), app))
 
 
 def forceClose(udid, app):
-    runCommand('adb -s {} shell am force-stop {}'.format(get_devices_str(), app))
+    runCommand('adb {} shell am force-stop {}'.format(get_devices_str(), app))
 
 
 def startApplication(udid, app):
-    runCommand("adb -s {} shell monkey -p {} -c android.intent.category.LAUNCHER 1".format(get_devices_str(), app))
+    runCommand("adb {} shell monkey -p {} -c android.intent.category.LAUNCHER 1".format(get_devices_str(), app))
 
+def getAppMemInfo(app):
+    runCommand("adb {} shell dumpsys meminfo {}".format(get_devices_str(), app))
+
+def getAppCPUInfo(app):
+    runCommand("adb {} shell dumpsys cpuinfo | grep {}".format(get_devices_str(), app))
+
+
+#adb -s 4857d2bc shell dumpsys cpuinfo | grep com.ss.android.article.lite
+#adb -s 4857d2bc shell top -n 1|find "com.ss.android.article.lite"
 
 '''
 ----------------------------------------------------------------
