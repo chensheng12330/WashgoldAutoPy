@@ -15,7 +15,7 @@ from app_flow import read_news as news
 '''
 
 # 执行的次数
-run_count = 2
+run_count = 4
 
 
 def main():
@@ -29,7 +29,7 @@ def main():
     curDevicesName = devlist.getUserSelectDevice()
     adb.gb_devices_name = curDevicesName
 
-    tt = toutiao.Toutiao()
+    tt = toutiao.Toutiao() 
 
     count = 0
     max_count = run_count
@@ -46,7 +46,7 @@ def main():
         print('--- 执行次数：%d, ' % count)
         print("当前设备: %s \n" % curDevicesName)
         continue
-
+    
     # 等待界面稳定
     adb.setSleep(10)
     print('>>> 点击文章列表')
@@ -57,16 +57,20 @@ def main():
     adb.tap(170, 140)
     
     print('>>> 跳转到任务中心，等待10分钟...')
-    adb.setSleep(10*60)
+    #adb.setSleep(10*60)
     #开启宝箱10分钟一次
     count = 0
-    max_count = 100000
+    max_count = 1
 
     # 10分钟一次开宝箱.
-    sleepTime = 10*60
+    #sleepTime = 10*60
 
     #等待宝箱10分钟倒计时.
     #adb.setSleep(sleepTime)
+    
+        #手机关闭屏幕
+    adb.closeScreen()
+    return
 
     while count < max_count:
         count += 1
@@ -81,6 +85,7 @@ def main():
         print("当前设备: %s \n" % curDevicesName)
         continue
 
-
+    #手机关闭屏幕
+    adb.closeScreen()
 # 启动开始
 main()

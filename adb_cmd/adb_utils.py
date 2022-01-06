@@ -73,6 +73,9 @@ def move(iStartX, iStartY, iEndX, iEndY, dura=800):
 def keyCode(number):
     osPopen('adb %s shell input keyevent %d' % (get_devices_str(), number))
 
+#关闭手机屏幕，启动休眠.
+def closeScreen():
+    osPopen('adb %s shell input keyevent 26' % (get_devices_str()))
 
 # 返回键
 def backKey():

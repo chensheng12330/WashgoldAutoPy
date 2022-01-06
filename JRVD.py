@@ -7,12 +7,16 @@ from mobile_run import devices_list as devlist
 from app_flow import read_news as news
 
 '''
-进行今日头条的小说阅读
-半/全屏坐标.
+进行今日头条的文章阅读，开宝箱操作.
+半屏坐标.
+
+执行40分钟文章阅读，
+连续执行开宝箱操作.
 '''
 
 # 执行的次数
-run_count = 300
+run_count = 50
+
 
 def main():
     """
@@ -25,25 +29,27 @@ def main():
     curDevicesName = devlist.getUserSelectDevice()
     adb.gb_devices_name = curDevicesName
 
-    tt = toutiao.Toutiao()
+    tt = toutiao.Toutiao() 
 
     count = 0
     max_count = run_count
+    count = 0
+    max_count = run_count
 
-    print('\n\033[1;44m---------启动今日头条的小说阅读----------\033[0m')
+    print('\n\033[1;44m---------启动今日头条的视频观看----------\033[0m')
 
     while count < max_count:
         count += 1
         
-        sleepT = adb.getRandom(10, 25)
-        adb.setSleep(sleepT)
-        
-        coEggX = 1040
-        coEggY = 600
-        adX = adb.getRandom(coEggX, coEggX + 30)
-        adY = adb.getRandom(coEggY - 200, coEggY + 900)
+        adY = adb.getRandom(300, 500)
 
-        adb.tap(adX, adY)
+        begX = adb.getRandom(800, 1000)
+        endX = adb.getRandom(100, 300)
+
+        tt.slideVideo(adY, begX, endX, 500)
+
+        sleepT = adb.getRandom(15, 30)
+        adb.setSleep(sleepT)
 
         # 进入下一次循环
         print('--- 执行次数：%d, ' % count)
@@ -52,5 +58,7 @@ def main():
 
     #手机关闭屏幕
     adb.closeScreen()
+
+
 # 启动开始
 main()

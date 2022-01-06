@@ -15,6 +15,24 @@ class Toutiao(object):
     def __init__(self):
         pass
 
+    # 向左滑动视频
+    def slideVideo(self,moveY=500, BegX=770, EndX=130, delay=800):
+        """
+        移动文章列表，使其处理顶部位置，方便行文章点击操作  
+        可配合 [tapNewsList] 操作
+
+        Args:
+            moveX (int, optional): [移动的X坐标值]. Defaults to 500.
+            BegY (int, optional): [移动开始的Y坐标]. Defaults to 870.
+            EndY (int, optional): [移动结束的Y坐标]. Defaults to 230.
+            delay (int, optional): [移动持续时长,单位ms]. Defaults to 800.
+        """
+        adb_utils.setSleep(1)
+        adb_utils.move(BegX, moveY, EndX, moveY, delay)
+        adb_utils.setSleep(1)
+        return
+
+
     # 宝箱坐标：eggX,eggY
     def eatBox(self, eggX, eggY):
         adb_utils.setSleep(2)
@@ -47,7 +65,7 @@ class Toutiao(object):
         adb_utils.tap(adX, adY)
 
         # 等待广告看完
-        print('>>> 等待广告看完')
+        print('>>> 等待广告看完,75秒')
         adb_utils.setSleep(75)
 
         # 循环8次后将会提示需要再次查看广告
@@ -87,7 +105,7 @@ class Toutiao(object):
         adb_utils.setSleep(1)
 
         # 点击红包到任务中心
-        #self.tipRadBagToBox_pri()
+        self.tipRadBagToBox_pri()
 
         # 返回到文章列表
         print('>>> 返回到文章列表.')
@@ -121,6 +139,9 @@ class Toutiao(object):
         self.eatBox(905, 1744)  #665 / 1744
         adb_utils.setSleep(6)
 
+        adb_utils.backKey()
+        adb_utils.setSleep(2)
+        return
         # 看广告
         self.eatAD(575, 785, 1)
 
@@ -149,7 +170,7 @@ class Toutiao(object):
 
         # 看广告
         print('>>> 看广告')
-        self.eatAD(575, 785, 1)
+        self.eatAD(575, 1366, 1)
 
         # 关闭广告页面,回到任务页面
         adb_utils.backKey()
@@ -207,4 +228,6 @@ def test_openBox():
 if __name__ == "__main__":
 
     pass
+    #tt = Toutiao()
+    #tt.eatBoxAndAD()
     # test_openBox()
