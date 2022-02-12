@@ -15,7 +15,7 @@ from app_flow import read_news as news
 '''
 
 # 执行的次数
-run_count = 50
+run_count = 100
 
 
 def main():
@@ -56,8 +56,11 @@ def main():
         print("当前设备: %s \n" % curDevicesName)
         continue
 
+    #手机关机.
+    adb.closePhone()
+
     #手机关闭屏幕
-    adb.closeScreen()
+    #adb.closeScreen()
 
 
 # 启动开始

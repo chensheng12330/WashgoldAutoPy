@@ -77,6 +77,14 @@ def keyCode(number):
 def closeScreen():
     osPopen('adb %s shell input keyevent 26' % (get_devices_str()))
 
+#关机
+def closePhone():
+    osPopen('adb %s shell reboot -p' % (get_devices_str()))
+
+#重启
+def rebootPhone():
+    osPopen('adb %s reboot -p' % (get_devices_str()))
+
 # 返回键
 def backKey():
     """[返回键]
