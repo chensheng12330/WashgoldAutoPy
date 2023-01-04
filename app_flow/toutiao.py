@@ -32,6 +32,22 @@ class Toutiao(object):
         adb_utils.setSleep(1)
         return
 
+     # 向上滑动视频
+    def slideUpVideo(self,moveX=500, BegY=770, EndY=130, delay=800):
+        """
+        移动文章列表，使其处理顶部位置，方便行文章点击操作  
+        可配合 [tapNewsList] 操作
+
+        Args:
+            moveX (int, optional): [移动的X坐标值]. Defaults to 500.
+            BegY (int, optional): [移动开始的Y坐标]. Defaults to 870.
+            EndY (int, optional): [移动结束的Y坐标]. Defaults to 230.
+            delay (int, optional): [移动持续时长,单位ms]. Defaults to 800.
+        """
+        adb_utils.setSleep(1)
+        adb_utils.move(moveX, BegY, moveX, EndY, delay)
+        adb_utils.setSleep(1)
+        return
 
     # 宝箱坐标：eggX,eggY
     def eatBox(self, eggX, eggY):

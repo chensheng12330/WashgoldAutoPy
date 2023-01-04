@@ -41,12 +41,12 @@ def main():
     while count < max_count:
         count += 1
         
-        adY = adb.getRandom(300, 500)
+        adx = adb.getRandom(400, 500)
 
-        begX = adb.getRandom(800, 1000)
-        endX = adb.getRandom(100, 300)
+        begY =  adb.getRandom(1200, 1300)
+        endY =  adb.getRandom(300, 400)
 
-        tt.slideVideo(adY, begX, endX, 500)
+        tt.slideUpVideo(adx, begY, endY, 500)
 
         sleepT = adb.getRandom(15, 30)
         adb.setSleep(sleepT)
