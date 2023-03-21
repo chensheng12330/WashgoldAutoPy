@@ -13,7 +13,7 @@ from app_flow import read_news as news
 执行40分钟文章阅读，
 连续执行开宝箱操作.
 '''
-
+    
 # 执行的次数
 run_count = 100
 
@@ -33,23 +33,27 @@ def main():
 
     count = 0
     max_count = run_count
-    count = 0
-    max_count = run_count
 
     print('\n\033[1;44m---------启动今日头条的视频观看----------\033[0m')
 
     while count < max_count:
         count += 1
         
-        adx = adb.getRandom(400, 500)
+        adx = adb.getRandom(200, 500)
 
         begY =  adb.getRandom(1200, 1300)
-        endY =  adb.getRandom(300, 400)
+        endY =  adb.getRandom(200, 500)
 
         tt.slideUpVideo(adx, begY, endY, 500)
 
+        #点赞
+        # adb.tap(970, 960)
+        # adb.setSleep(3)
+        
+        
         sleepT = adb.getRandom(15, 30)
         adb.setSleep(sleepT)
+
 
         # 进入下一次循环
         print('--- 执行次数：%d, ' % count)
@@ -57,11 +61,11 @@ def main():
         continue
 
     #手机关机.
-    adb.closePhone()
+    #adb.closePhone()
 
+    adb.notify("重要新闻来啦!!!","视频已结束,请查收.")
     #手机关闭屏幕
-    #adb.closeScreen()
-
+    adb.closeScreen()
 
 # 启动开始
 main()

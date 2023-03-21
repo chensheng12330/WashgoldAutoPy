@@ -3,9 +3,16 @@
 # 设备与手机绑定字典表
 devices_list = [{"phone_no": "135", "dev_no": "4857d2bc"},
 {"phone_no": "158", "dev_no": "8514c020"},
-{"phone_no": "171", "dev_no": "e3656a1b"},
-{"phone_no": "137", "dev_no": "a790be09"}]
+{"phone_no": "171", "dev_no": "24fc9944"},
+{"phone_no": "147", "dev_no": "a790be09"},
+{"phone_no": "139", "dev_no": "dcafb115"}]
 
+def getDeviceNoList():
+    curDeviceNoList=[]
+    for devDict in devices_list:
+        dev_no = devDict['dev_no']
+        curDeviceNoList.append(dev_no)
+    return curDeviceNoList
 
 def getUserSelectDevice():
     """获取当前用户选择的设备"""

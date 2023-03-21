@@ -116,12 +116,12 @@ class Toutiao(object):
 
         # 阅读新闻 10分钟一次
         print('>>> 阅读新闻,10分钟一次')
-        news.readNews(600)
+        news.readNews(1000)
 
         adb_utils.setSleep(1)
 
         # 点击红包到任务中心
-        self.tipRadBagToBox_pri()
+        #self.tipRadBagToBox_pri()
 
         # 返回到文章列表
         print('>>> 返回到文章列表.')

@@ -68,7 +68,9 @@ def main():
     #等待宝箱10分钟倒计时.
     #adb.setSleep(sleepTime)
     
-        #手机关闭屏幕
+    adb.notify("重要新闻来啦!!!","文章阅读已结束,请查收.")
+
+    #手机关闭屏幕
     adb.closeScreen()
     return
 

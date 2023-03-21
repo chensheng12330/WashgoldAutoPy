@@ -64,15 +64,17 @@ def readNews(beginY=600, readTime=10):
 
     # 向上滑动
     while moveCout > 1:
-        adX = adb_utils.getRandom(coEggX - 20, coEggX + 20)
-        adY = adb_utils.getRandom(coEggY - 5, coEggY + 5)
-        adL = adb_utils.getRandom(45, 100)
-        adb_utils.move(adX, adY, adX, adY - adL, 700)
-        adb_utils.setSleep(5)
+        adX = adb_utils.getRandom(coEggX - 50, coEggX + 50)
+        adY = adb_utils.getRandom(coEggY - 50, coEggY + 300)
+        adL = adb_utils.getRandom(50, 250)
+        endX = adX + adb_utils.getRandom(10, 20)
+        adb_utils.move(adX, adY, endX, adY - adL, 800)
+        adb_utils.setSleep(adb_utils.getRandom(5, 10))
         moveCout -= 5
         moveNum += 1
         print(">>> 文章阅读中，->向上移动次数 (%d) 阅读时长(%d)..." % (moveNum, moveNum * 5))
 
+    return
     # 向下滑动
     moveNum = 0
     moveCout = 1 * 60

@@ -3,7 +3,8 @@
 
 import os as osOs  # 内置shell交互
 from os import popen as osPopen  # 管道处理
-from os import system as osSystem  # 管道处理
+from os import system as osSystem
+import os  # 管道处理
 import random as osRandom  # 随机数
 from time import sleep as osSleep
 import re as osRe
@@ -80,6 +81,9 @@ def closeScreen():
 #关机
 def closePhone():
     osPopen('adb %s shell reboot -p' % (get_devices_str()))
+
+def closePhoneWithDeviceNo(deviceNo):
+    osPopen('adb -s %s shell reboot -p' % (deviceNo))
 
 #重启
 def rebootPhone():
@@ -248,6 +252,10 @@ def test_NOuserDevcies():
     # gb_devices_name = "-s e3656a1b"
     screen_brightness(100)
 
+def notify(title, text):
+    os.system("""
+              osascript -e 'display notification "{}" with title "{}"'
+              """.format(text, title))
 
 if __name__ == "__main__":
     # print('状态：{}'.format(isConnected("4857d2bc")))

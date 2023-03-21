@@ -13,7 +13,8 @@ from mobile_run import devices_list as devlist
 function_list = [
     {"fun_no":"0", "fun_name":"关机"},
     {"fun_no":"1", "fun_name":"重启"},
-    {"fun_no":"2", "fun_name":"关屏"}
+    {"fun_no":"2", "fun_name":"关屏"},
+    {"fun_no":"3", "fun_name":"全部关机"}
     ]
 
 #当前功能选择
@@ -53,7 +54,6 @@ def getSelectFuction():
     return dev_dict["fun_no"]
 
 
-
 def main():
     """
     1. 功能选择清单
@@ -76,36 +76,13 @@ def main():
         curDevicesName = devlist.getUserSelectDevice()
         adb.gb_devices_name = curDevicesName
         adb.closeScreen()
+    elif curFuction == '3':
+        curDevicesNoList = devlist.getDeviceNoList()
+        for devNo in curDevicesNoList:
+            print("执行关机操作: %s" % devNo)
+            adb.closePhoneWithDeviceNo(devNo)
 
     return
-    # 设置当前的设备为 用户选择输入.
-    curDevicesName = devlist.getUserSelectDevice()
-    adb.gb_devices_name = curDevicesName
-
-
-    print('\n\033[1;44m---------启动今日头条的视频观看----------\033[0m')
-
-    while count < max_count:
-        count += 1
-        
-        adY = adb.getRandom(300, 500)
-
-        begX = adb.getRandom(800, 1000)
-        endX = adb.getRandom(100, 300)
-
-        tt.slideVideo(adY, begX, endX, 500)
-
-        sleepT = adb.getRandom(15, 30)
-        adb.setSleep(sleepT)
-
-        # 进入下一次循环
-        print('--- 执行次数：%d, ' % count)
-        print("当前设备: %s \n" % curDevicesName)
-        continue
-
-    #手机关闭屏幕
-    adb.closeScreen()
-
 
 # 启动开始
 main()
