@@ -13,7 +13,7 @@ from app_flow import read_news as news
 执行40分钟文章阅读，
 连续执行开宝箱操作.
 '''
-
+    
 # 执行的次数
 run_count = 100
 
@@ -31,8 +31,6 @@ def main():
 
     tt = toutiao.Toutiao() 
 
-    count = 0
-    max_count = run_count
     count = 0
     max_count = run_count
 
@@ -57,11 +55,11 @@ def main():
         continue
 
     #手机关机.
-    adb.closePhone()
+    #adb.closePhone()
 
+    adb.notify("重要新闻来啦!!!","视频已结束,请查收.")
     #手机关闭屏幕
-    #adb.closeScreen()
-
+    adb.closeScreen()
 
 # 启动开始
 main()
